@@ -53,9 +53,10 @@ if __name__ == "__main__":
 		
 		t += dt
 
-	plt.plot(xrk, yrk, label = r'$Ronge-Kutta$')
+	t = range(len(xrk))
+	plt.plot(t, yrk, label = r'$Ronge-Kutta$')
 	plt.hold(True)
-	plt.plot(xv, yv, label = r'$Verlet$')
+	plt.plot(t, yv, label = r'$Verlet$')
 	plt.legend(loc = 'lower left')
 	plt.hold(False)
 	plt.show()
