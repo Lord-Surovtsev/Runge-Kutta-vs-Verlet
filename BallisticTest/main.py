@@ -7,10 +7,10 @@ if __name__ == "__main__":
 	t = 0
 	dt = input("dt: ")
 	maxt = input("maxt: ")
-	vx = 1
-	vy = 2
-	x = 0
-	y = 0
+	vx = input("vx: ")
+	vy = input("vy: ")
+	x = input("x: ")
+	y = input("y: ")
 	Uv  = Verlet.InitializeVerlet(x, y, vx, vy, dt)
 	Urk = RungeKutta.InitializeRungeKutta(x, y, vx, vy, dt)
 	xrk = []
@@ -49,10 +49,17 @@ if __name__ == "__main__":
 		
 		t += dt
 
-	plt.plot(xrk, yrk, label = r'$Ronge-Kutta$')
+	t = range(len(xrk))
+	plt.plot(t, xrk, label = r'$Ronge-Kutta: x(t)$')
 	plt.hold(True)
-	plt.plot(xv, yv, label = r'$Verlet$')
+	plt.plot(t, xv, label = r'$Verlet: x(t)$')
 	plt.legend(loc = 'lower left')
 	plt.hold(False)
 	plt.show()
 	
+	plt.plot(t, yrk, label = r'$Ronge-Kutta: y(t)$')
+	plt.hold(True)
+	plt.plot(t, yv, label = r'$Verlet: y(t)$')
+	plt.legend(loc = 'lower left')
+	plt.hold(False)
+	plt.show()

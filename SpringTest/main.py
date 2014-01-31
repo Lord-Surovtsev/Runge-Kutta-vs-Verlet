@@ -7,10 +7,10 @@ if __name__ == "__main__":
 	t = 0
 	dt = input("dt: ")
 	maxt = input("maxt: ")
-	vx = 1
-	vy = 2
-	x = 0
-	y = 0
+	vx = input("vx: ")
+	vy = input("vy: ")
+	x = input("x: ")
+	y = input("y: ")
 	x0 = input("x0: ")
 	y0 = input("y0: ")
 	l0 = input("l0: ")
@@ -54,10 +54,16 @@ if __name__ == "__main__":
 		t += dt
 
 	t = range(len(xrk))
-	plt.plot(t, yrk, label = r'$Ronge-Kutta$')
+	plt.plot(t, xrk, label = r'$Ronge-Kutta: x(t)$')
 	plt.hold(True)
-	plt.plot(t, yv, label = r'$Verlet$')
+	plt.plot(t, xv, label = r'$Verlet: x(t)$')
 	plt.legend(loc = 'lower left')
 	plt.hold(False)
 	plt.show()
 	
+	plt.plot(t, yrk, label = r'$Ronge-Kutta: y(t)$')
+	plt.hold(True)
+	plt.plot(t, yv, label = r'$Verlet: y(t)$')
+	plt.legend(loc = 'lower left')
+	plt.hold(False)
+	plt.show()
